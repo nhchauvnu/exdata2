@@ -6,11 +6,11 @@ and Source Classification Code Table (Source_Classification_Code.rds)</li>
 
 <li>From directory containing two .rds files, run the following shell commands:
 
-Rscript --no-save plot1.r
-Rscript --no-save plot2.r
-Rscript --no-save plot3.r
-Rscript --no-save plot4.r
-Rscript --no-save plot5.r
-Rscript --no-save plot6.r
+<p>Rscript --no-save plot1.r</p>
+<p>Rscript --no-save plot2.r</p>
+<p>Rscript --no-save plot3.r</p>
+<p>Rscript --no-save plot4.r</p>
+<p>Rscript --no-save plot5.r</p>
+<p>Rscript --no-save plot6.r</p>
 
 The commands create 6 plots named from plot1.png to plot6.png.</li>
