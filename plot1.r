@@ -1,0 +1,12 @@
+library(dplyr)
+NEI <- readRDS("summarySCC_PM25.rds")
+gr = group_by(NEI, year)
+s1 = summarize(gr, total=sum(Emissions))
+png('plot1.png', width=480, height=480)
+ymax = ceiling(max(s1$total/1000000))
+barplot(s1$total/1000000, names.arg=s1$year, main="Total emission from PM2.5 in the United State, 1999-2008",
+	xlab="Year", ylab="Emission amount (million tons)", ylim=range(0:ymax))
+am = sprintf("%.2f",s1$total/1000000)
+n = length(s1$total)
+for (i in 1:n) text(x=i,y=s1$total[i]/1000000+.2, am[i])
+dev.off()

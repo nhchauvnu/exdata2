@@ -1,0 +1,15 @@
+library(dplyr)
+library(ggplot2)
+NEI <- readRDS("summarySCC_PM25.rds")
+# Using dplyr functions
+btm = filter(NEI,fips=='24510') # Baltimore, Maryland
+gr = group_by(btm, type, year)
+s1 = summarize(gr, total=sum(Emissions))
+g = ggplot(data=s1, aes(x=as.character(year),y=total))
+# g = g + geom_text(aes(label=total), vjust=5)
+g = g+geom_bar(stat="identity")+facet_grid(.~type)
+g = g+xlab('Year') + ylab('Total emission (tons)')
+g = g+ggtitle('Total emission from PM2.5 in the Baltimore City\nbroken down by source, 1999-2008')
+png('plot3.png',480,480)
+print(g)
+dev.off()
